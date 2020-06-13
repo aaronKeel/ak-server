@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --config=jest.config.js --watch",
+    "ci:test": "jest --config=jest.config.js",
     "lint": "eslint src --ext .ts",
     "build": "tsc",
+    "checks": "npm run ci:test && npm run lint && npm run build",
     "tsn": "ts-node",
     "start": "ts-node src/server.ts",
     "start:prod": "tsc && node dist/server.js",
