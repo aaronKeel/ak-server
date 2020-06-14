@@ -14,7 +14,7 @@
     "start:prod": "tsc && node dist/index.js",
     "heroku:deploy": "git push heroku master",
     "heroku:open": "heroku open"
-},
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aaronKeel/ak-server.git"
@@ -30,7 +30,9 @@
   "homepage": "https://github.com/aaronKeel/ak-server#readme",
   "dependencies": {
     "@types/express": "^4.17.6",
+    "@types/pg": "^7.14.3",
     "express": "^4.17.1",
+    "pg": "^8.2.1",
     "typescript": "^3.9.5"
   },
   "devDependencies": {
