@@ -14,7 +14,7 @@ export const server = (port: number | string): void => {
             const defaultConfig = {
                 host: 'localhost', // server name or IP address;
                 port: 5432,
-                database: 'tdat',
+                database: 'herokutestdb',
                 user: 'tdat',
                 password: '',
             };
@@ -30,7 +30,7 @@ export const server = (port: number | string): void => {
 
             client.connect();
 
-            client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, pgRes) => {
+            client.query('SELECT * FROM public.names;', (err, pgRes) => {
                 if (err) throw err;
 
                 client.end();
