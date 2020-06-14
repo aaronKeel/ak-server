@@ -10,7 +10,7 @@
     "build": "tsc",
     "checks": "npm run ci:test && npm run lint && npm run build",
     "tsn": "ts-node",
-    "start": "ts-node src/index.ts",
+    "start": "NODE_ENV=development ts-node src/index.ts",
     "start:prod": "tsc && node dist/index.js",
     "heroku:deploy": "git push heroku master",
     "heroku:open": "heroku open"

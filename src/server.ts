@@ -7,16 +7,26 @@ type Name = { name: string };
 export const server = (port: number | string): void => {
     const express = Express();
 
-    express.get('/', (req: Express.Request, res: Express.Response) => res.send('Hello World!'));
+    express.get('/', (req: Express.Request, res: Express.Response) => res.send(`Hello World! ${port}`));
 
     express.route('/test-pg')
         .get((req: Express.Request, res: Express.Response) => {
-            const client = new Client({
+            const defaultConfig = {
+                host: 'localhost', // server name or IP address;
+                port: 5432,
+                database: 'tdat',
+                user: 'tdat',
+                password: '',
+            };
+
+            const prodConfig = {
                 connectionString: process.env.DATABASE_URL,
                 ssl: {
                     rejectUnauthorized: false,
                 },
-            });
+            };
+
+            const client = new Client(process.env.NODE_ENV === 'development' ? defaultConfig : prodConfig);
 
             client.connect();
 
