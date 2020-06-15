@@ -13,7 +13,9 @@
     "start": "NODE_ENV=development ts-node src/index.ts",
     "start:prod": "tsc && node dist/index.js",
     "heroku:deploy": "git push heroku master",
-    "heroku:open": "heroku open"
+    "heroku:open": "heroku open",
+    "heroku:db:reset": "heroku pg:reset",
+    "heroku:db:push": "heroku pg:push postgres://localhost/herokutestdb postgresql-objective-13261"
   },
   "repository": {
     "type": "git",
